@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 550px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            flex: 1 1 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Builder</h1>
+        <form method="POST" action="/resume-builder">
+            <label for="name">Name:</label>
+            <input type="text" name="name" required>
+
+            <label for="contact">Contact Info:</label>
+            <input type="text" name="contact" required>
+
+            <label for="job_title">Job Title:</label>
+            <input type="text" name="job_title" required>
+
+            <label for="skills">Skills (comma-separated):</label>
+            <input type="text" name="skills" required>
+
+            <label for="experience">Years of Experience:</label>
+            <input type="number" name="experience" required>
+
+            <label for="education">Education:</label>
+            <input type="text" name="education" required>
+
+            <div class="btn-group">
+                <button type="submit" name="action" value="preview"><i class="fas fa-eye"></i> Preview</button>
+                <button type="submit" name="action" value="submit"><i class="fas fa-check"></i> Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

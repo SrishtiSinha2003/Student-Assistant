@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study Plan Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #fdfdfd;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .plan-box {
+            margin-top: 25px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Study Plan Generator</h2>
+        <form method="POST" action="/study-plan">
+            <label for="purpose">Purpose:</label>
+            <select name="purpose" required>
+                <option value="">-- Select --</option>
+                <option value="exam">Exam Preparation</option>
+                <option value="skill">Skill Learning</option>
+            </select>
+
+            <label for="subjects">Subjects (comma-separated):</label>
+            <input type="text" name="subjects" required>
+
+            <label for="hours">Available Hours per Day:</label>
+            <input type="number" name="hours" required min="1">
+
+            <label for="deadline">Deadline (Date):</label>
+            <input type="date" name="deadline" required>
+
+            <label for="method">Preferred Study Method:</label>
+            <input type="text" name="method" placeholder="e.g., Pomodoro, Flashcards, Deep Work" required>
+
+            <button type="submit">Generate Study Plan</button>
+        </form>
+
+        {% if plan %}
+    <div class="plan-box">
+        <h3>📘 Your Study Plan:</h3>
+        {% if plan is mapping %}
+            <ul>
+                {% for subject, text in plan.items() %}
+                    <li><strong>{{ subject }}:</strong> {{ text }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ plan }}</p>
+        {% endif %}
+    </div>
+{% endif %}
+</div>
+</body>
+</html>

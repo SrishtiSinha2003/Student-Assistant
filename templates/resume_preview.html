@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Resume Preview</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .container { max-width: 600px; }
+        h1 { margin-bottom: 20px; }
+        p { line-height: 1.5; }
+        .score { font-weight: bold; color: green; }
+        a.button {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Preview</h1>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Contact:</strong> {{ contact }}</p>
+        <p><strong>Job Title:</strong> {{ job_title }}</p>
+        <p><strong>Skills:</strong> {{ skills }}</p>
+        <p><strong>Experience (years):</strong> {{ experience }}</p>
+        <p><strong>Education:</strong> {{ education }}</p>
+
+        {% if score is not none %}
+        <p class="score">Resume Score: {{ score }}</p>
+        {% else %}
+        <p><em>No score calculated. This is a preview.</em></p>
+        {% endif %}
+
+        <a href="{{ url_for('resume_builder') }}" class="button">Back to Edit</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Suggestion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 25px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            flex: 1 1 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            text-align: left;
+        }
+
+        .card a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Career Suggestion System</h1>
+
+        <form method="POST" action="/">
+            <label for="skills">Enter your skills (comma-separated):</label>
+            <input type="text" id="skills" name="skills" required>
+
+            <div class="btn-group">
+                <button type="submit"><i class="fas fa-search"></i> Get Suggestions</button>
+                <a href="{{ url_for('resume_builder') }}">
+                    <button type="button"><i class="fas fa-file-alt"></i> Build Resume</button>
+                </a>
+                <a href="{{ url_for('study_plan') }}">
+                    <button type="button"><i class="fas fa-book-open"></i> Study Plan</button>
+                </a>
+                <a href="{{ url_for('resolve_doubt') }}">
+                    <button type="button"><i class="fas fa-question-circle"></i> Resolve Doubt</button>
+                </a>
+            </div>
+        </form>
+
+        {% if roles %}
+            <h2 style="margin-top: 40px;">Top Career Suggestions:</h2>
+            <ul>
+                {% for role in roles %}
+                    <li><strong>{{ role.role }}</strong>
+                        {% if role.resources %}
+                            <ul>
+                                {% for link in role.resources %}
+                                    <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

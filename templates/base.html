@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Student Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Smart Student Assistant</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('career_form') }}">Career Suggestion</a>
+            <a href="{{ url_for('resume_builder') }}">Resume Builder</a>
+            <a href="{{ url_for('study_plan') }}">Study Plan</a>
+            <a href="{{ url_for('resolve_doubt') }}">Doubt Resolver</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
