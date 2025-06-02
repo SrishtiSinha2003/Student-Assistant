@@ -20,15 +20,15 @@ A smart Flask-based web application designed to assist students in career planni
 - **HTML/CSS** for templates
 
 ## 📁 Project Structure
-├── app/ # Flask app folder
-├── templates/ # HTML templates
-├── app.py # Flask application script
-├── run.py # Alternate runner
-├── render.yaml # Deployment configuration
-├── requirements.txt # Dependencies
-├── *.pkl # Trained ML model files
-├── *.ipynb # Jupyter notebooks for training
-├── *.csv # Sample dataset
-├── *.py # Supporting Python scripts
-└── README.md # This file
+├── app/               # Flask app folder
+│   └── templates/     # HTML templates
+├── app.py             # Main Flask application script
+├── run.py             # Alternate app runner
+├── render.yaml        # Deployment configuration
+├── requirements.txt   # Python dependencies
+├── *.pkl              # Trained ML model files
+├── *.ipynb            # Jupyter notebooks for model training
+├── *.csv              # Sample dataset files
+├── *.py               # Supporting Python scripts
+└── README.md          # This file
 
