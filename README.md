@@ -20,6 +20,7 @@ A smart Flask-based web application designed to assist students in career planni
 - **HTML/CSS** for templates
 
 ## 📁 Project Structure
+```bash
 ├── app/               # Flask app folder
 │   └── templates/     # HTML templates
 ├── app.py             # Main Flask application script
