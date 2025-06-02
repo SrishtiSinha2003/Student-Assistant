@@ -1,6 +1,5 @@
-# Student Assistant
-
-A smart Flask-based web application designed to assist students in career planning, resume evaluation, and study plan generation using machine learning models.
+### 🧠 Smart Student Assistant
+An intelligent assistant that helps students by providing:
 
 ## 🚀 Features
 
