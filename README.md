@@ -3,11 +3,16 @@ An intelligent assistant that helps students by providing:
 
 ## 🚀 Features
 
-- **Career Guidance**: Predicts suitable career options based on input.
-- **Resume Scoring**: Evaluates resumes and provides feedback.
-- **Study Plan Generator**: Creates a personalized study schedule.
-- **Interactive Web Interface**: Built with Flask and templates.
-- **Deployment Ready**: Includes `render.yaml` and `gunicorn` for deployment on platforms like Render.
+- 📚 Study Plan Generator: Creates a personalized study schedule.
+
+- 📄 Resume Builder with Score Preview: Evaluates resumes and provides feedback.
+
+- 🧭 Career Suggestion Tool: Predicts suitable career options based on input.
+
+- ❓ Doubt Resolver: Uses Wikipedia to answer academic questions.
+
+- 🌐 Interactive Web Interface: Built using Flask and styled with HTML/CSS.
+
 
 ## 🧠 Technologies Used
 
